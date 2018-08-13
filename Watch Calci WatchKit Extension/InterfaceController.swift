@@ -9,14 +9,21 @@
 import WatchKit
 import Foundation
 
+enum Actions
+{
+   case ADD
+   case SUB
+   case CLEAR
+
+}
 
 class InterfaceController: WKInterfaceController {
     
-    var previousAction:String = ""
+    var previousAction:Actions = Actions.CLEAR
     
-    var firstNumber:Int = 0
+    var firstNumber:Int64 = 0
     
-    var secondNumber:Int = 0
+    var secondNumber:Int64 = 0
     
     @IBOutlet var calculationDisplayLabel: WKInterfaceLabel!
     
@@ -67,7 +74,15 @@ class InterfaceController: WKInterfaceController {
         {
            let concatData = "\(firstNumber)\(num)"
             
-            firstNumber = Int(concatData)!
+            guard let concatNumber:Int64 = Int64(concatData) else
+            {
+                firstNumber = 0
+                secondNumber = 0
+                self.calculationDisplayLabel.setText("Number too large")
+                return
+            }
+            
+            firstNumber = concatNumber
             
             calculationDisplayLabel.setText(concatData)
             print(firstNumber)
@@ -76,7 +91,13 @@ class InterfaceController: WKInterfaceController {
         {
             let concatData = "\(num)"
             
-            firstNumber = Int(concatData)!
+            guard let concatNumber:Int64 = Int64(concatData) else
+            {
+                self.calculationDisplayLabel.setText("Number too large")
+                return
+            }
+            
+            firstNumber = concatNumber
             
             calculationDisplayLabel.setText(concatData)
             print(firstNumber)
@@ -86,54 +107,38 @@ class InterfaceController: WKInterfaceController {
     
     @IBAction func clickedPlusButton()
     {
-        secondNumber = firstNumber + secondNumber
-        
-        firstNumber = 0
-        
-        previousAction = "add"
-        
-        calculationDisplayLabel.setText("\(secondNumber)")
-
+        previousAction = Actions.ADD
+        actionToBeTaken(mode: previousAction)
     }
     
     
     @IBAction func clickedMinusButton()
     {
-        if(secondNumber != 0)
-        {
-            secondNumber = secondNumber - firstNumber
-        }
-        else
-        {
-            secondNumber = firstNumber - secondNumber
-        }
-        
-        calculationDisplayLabel.setText("\(secondNumber)")
-        
-        firstNumber = 0
-        
-        previousAction = "sub"
+        previousAction = Actions.SUB
+        actionToBeTaken(mode: previousAction)
     }
     
     
     @IBAction func clickedClearButton()
     {
-        secondNumber = 0
-        firstNumber = 0
-        
-        calculationDisplayLabel.setText("\(firstNumber)")
+        previousAction = Actions.CLEAR
+        actionToBeTaken(mode: previousAction)
     }
     
     @IBAction func clickedEqualsButton()
     {
-        switch previousAction {
-        case "add":
+        actionToBeTaken(mode: previousAction)
+    }
+    
+    func actionToBeTaken(mode:Actions)
+    {
+        if(mode == Actions.ADD)
+        {
             secondNumber = firstNumber + secondNumber
             
-            calculationDisplayLabel.setText("\(secondNumber)")
-            
-            firstNumber = 0
-        case "sub":
+        }
+        else if(mode == Actions.SUB)
+        {
             if(secondNumber != 0)
             {
                 secondNumber = secondNumber - firstNumber
@@ -143,24 +148,19 @@ class InterfaceController: WKInterfaceController {
                 secondNumber = firstNumber - secondNumber
             }
             
-            calculationDisplayLabel.setText("\(secondNumber)")
             
-            firstNumber = 0
-            
-        default: break
+        }
+        else if(mode == Actions.CLEAR)
+        {
+            secondNumber = 0
             
         }
         
-        previousAction = ""
-
-    }
+        firstNumber = 0
+        calculationDisplayLabel.setText("\(secondNumber)")
     
-
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
-        
-        // Configure interface objects here.
     }
+
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
@@ -168,10 +168,6 @@ class InterfaceController: WKInterfaceController {
         calculationDisplayLabel.setText("\(firstNumber)")
         
     }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
+
 
 }
