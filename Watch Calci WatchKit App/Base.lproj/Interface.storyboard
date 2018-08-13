@@ -1,14 +1,149 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14033"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch_Calci_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <group width="1" height="0.20000000000000001" alignment="left" id="5Ae-zG-seM">
+                            <items>
+                                <label width="1" alignment="right" text="1000" textAlignment="right" id="PH3-y1-i5e">
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" height="0.20000000000000001" alignment="left" id="LMO-kB-mbH">
+                            <items>
+                                <button width="0.25" height="1" alignment="left" title="7" id="8x7-vE-5zm">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <connections>
+                                        <action selector="clickedNumber7" destination="AgC-eL-Hgc" id="CYN-RS-R8r"/>
+                                    </connections>
+                                </button>
+                                <button width="0.25" height="1" alignment="left" title="8" id="qJc-5a-sAG">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <connections>
+                                        <action selector="clickedNumber8" destination="AgC-eL-Hgc" id="VBh-qo-btT"/>
+                                    </connections>
+                                </button>
+                                <button width="0.25" height="1" alignment="left" title="9" id="NWR-pd-kNH">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <connections>
+                                        <action selector="clickedNumber9" destination="AgC-eL-Hgc" id="nAl-ez-5Pb"/>
+                                    </connections>
+                                </button>
+                                <button width="0.25" height="1" alignment="left" title="+" id="eLb-jt-dUX">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <connections>
+                                        <action selector="clickedPlusButton" destination="AgC-eL-Hgc" id="YA3-fy-zCu"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" height="0.20000000000000001" alignment="left" id="rVb-44-FcF">
+                            <items>
+                                <button width="0.25" height="1" alignment="left" title="4" id="XXI-uy-91k">
+                                    <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <connections>
+                                        <action selector="clickedNumber4" destination="AgC-eL-Hgc" id="NTB-dL-rfG"/>
+                                    </connections>
+                                </button>
+                                <button width="0.25" height="1" alignment="left" title="5" id="cGR-UF-JMi">
+                                    <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <connections>
+                                        <action selector="clickedNumber5" destination="AgC-eL-Hgc" id="Wgi-BU-Lac"/>
+                                    </connections>
+                                </button>
+                                <button width="0.25" height="1" alignment="left" title="6" id="YCV-OF-7Zu">
+                                    <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <connections>
+                                        <action selector="clickedNumber6" destination="AgC-eL-Hgc" id="vFc-IS-RCw"/>
+                                    </connections>
+                                </button>
+                                <button width="0.25" height="1" alignment="left" title="-" id="vsR-rE-Kkc">
+                                    <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <connections>
+                                        <action selector="clickedMinusButton" destination="AgC-eL-Hgc" id="AiA-zK-7C0"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" height="0.20000000000000001" alignment="left" id="Bao-be-Phj">
+                            <items>
+                                <button width="0.25" height="1" alignment="left" title="1" id="gIr-l4-OXE">
+                                    <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <connections>
+                                        <action selector="clickedNumber1" destination="AgC-eL-Hgc" id="bP1-3z-bKc"/>
+                                    </connections>
+                                </button>
+                                <button width="0.25" height="1" alignment="left" title="2" id="LRY-0w-M9h">
+                                    <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <connections>
+                                        <action selector="clickedNumber2" destination="AgC-eL-Hgc" id="V5M-X7-Mh3"/>
+                                    </connections>
+                                </button>
+                                <button width="0.25" height="1" alignment="left" title="3" id="cpU-xR-jzn">
+                                    <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <connections>
+                                        <action selector="clickedNumber3" destination="AgC-eL-Hgc" id="K3i-zq-y7j"/>
+                                    </connections>
+                                </button>
+                                <button width="0.25" height="1" alignment="left" title="C" id="v3M-pK-qPf">
+                                    <color key="backgroundColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <connections>
+                                        <action selector="clickedClearButton" destination="AgC-eL-Hgc" id="avz-Cf-EuK"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" height="0.20000000000000001" alignment="left" id="FyF-xM-6d2">
+                            <items>
+                                <button width="0.75" height="1" alignment="left" title="0" id="PNl-hG-fL5">
+                                    <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <connections>
+                                        <action selector="clickedNumber0" destination="AgC-eL-Hgc" id="cbg-cv-wP4"/>
+                                    </connections>
+                                </button>
+                                <button width="0.25" height="1" alignment="left" title="=" id="Keo-Na-t5M">
+                                    <color key="backgroundColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <connections>
+                                        <action selector="clickedEqualsButton" destination="AgC-eL-Hgc" id="lhR-kF-9XV"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="calculationDisplayLabel" destination="PH3-y1-i5e" id="oiz-0b-vTD"/>
+                    </connections>
+                </controller>
             </objects>
         </scene>
     </scenes>
