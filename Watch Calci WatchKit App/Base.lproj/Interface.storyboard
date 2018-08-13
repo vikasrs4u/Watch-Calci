@@ -16,7 +16,7 @@
                     <items>
                         <group width="1" height="0.20000000000000001" alignment="left" id="5Ae-zG-seM">
                             <items>
-                                <label width="1" alignment="right" text="Number too large" textAlignment="right" id="PH3-y1-i5e">
+                                <label width="1" alignment="right" text="0" textAlignment="right" id="PH3-y1-i5e">
                                     <fontDescription key="font" type="boldSystem" pointSize="18"/>
                                 </label>
                             </items>
