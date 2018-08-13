@@ -84,7 +84,7 @@ class InterfaceController: WKInterfaceController {
             
             firstNumber = concatNumber
             
-            calculationDisplayLabel.setText(concatData)
+            formattedNumberDisplay(num: firstNumber)
             print(firstNumber)
         }
         else
@@ -98,8 +98,7 @@ class InterfaceController: WKInterfaceController {
             }
             
             firstNumber = concatNumber
-            
-            calculationDisplayLabel.setText(concatData)
+            formattedNumberDisplay(num: firstNumber)
             print(firstNumber)
         }
         
@@ -157,10 +156,19 @@ class InterfaceController: WKInterfaceController {
         }
         
         firstNumber = 0
-        calculationDisplayLabel.setText("\(secondNumber)")
+        formattedNumberDisplay(num: secondNumber)
     
     }
 
+    // function for number formatting
+    func formattedNumberDisplay(num:Int64)
+    {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.decimal
+        let formattedNumber = NSNumber(value: num)
+        let stringValueOfFormattedNumber = formatter.string(from: formattedNumber)
+         calculationDisplayLabel.setText(stringValueOfFormattedNumber)
+    }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
