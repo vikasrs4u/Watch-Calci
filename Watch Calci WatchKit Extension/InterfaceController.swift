@@ -12,6 +12,7 @@ import Foundation
 
 class InterfaceController: WKInterfaceController {
     
+    var previousAction:String = ""
     
     var firstNumber:Int = 0
     
@@ -89,25 +90,69 @@ class InterfaceController: WKInterfaceController {
         
         firstNumber = 0
         
+        previousAction = "add"
         
+        calculationDisplayLabel.setText("\(secondNumber)")
 
     }
     
     
-    @IBAction func clickedMinusButton() {
-    }
-    
-    
-    @IBAction func clickedClearButton() {
-    }
-    
-    @IBAction func clickedEqualsButton()
+    @IBAction func clickedMinusButton()
     {
-        secondNumber = firstNumber + secondNumber
+        if(secondNumber != 0)
+        {
+            secondNumber = secondNumber - firstNumber
+        }
+        else
+        {
+            secondNumber = firstNumber - secondNumber
+        }
         
         calculationDisplayLabel.setText("\(secondNumber)")
         
         firstNumber = 0
+        
+        previousAction = "sub"
+    }
+    
+    
+    @IBAction func clickedClearButton()
+    {
+        secondNumber = 0
+        firstNumber = 0
+        
+        calculationDisplayLabel.setText("\(firstNumber)")
+    }
+    
+    @IBAction func clickedEqualsButton()
+    {
+        switch previousAction {
+        case "add":
+            secondNumber = firstNumber + secondNumber
+            
+            calculationDisplayLabel.setText("\(secondNumber)")
+            
+            firstNumber = 0
+        case "sub":
+            if(secondNumber != 0)
+            {
+                secondNumber = secondNumber - firstNumber
+            }
+            else
+            {
+                secondNumber = firstNumber - secondNumber
+            }
+            
+            calculationDisplayLabel.setText("\(secondNumber)")
+            
+            firstNumber = 0
+            
+        default: break
+            
+        }
+        
+        previousAction = ""
+
     }
     
 
