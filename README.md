@@ -3,7 +3,7 @@ Watch Calci is an watchOS app for Apple Watch that helps you do basic calculatio
 
 ### App Demo 
 
-![watch calci mov](https://user-images.githubusercontent.com/22437872/44064763-ae97f574-9f1b-11e8-9437-ff966fdc3ee3.gif)
+![calci mp4](https://user-images.githubusercontent.com/22437872/44065208-2ed89980-9f1e-11e8-8926-433f0c881e0a.gif)
 
 
 ### Features of the App:
