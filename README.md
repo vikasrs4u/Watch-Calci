@@ -10,7 +10,11 @@ Watch Calci is an watchOS app for Apple Watch that helps you do basic calculatio
 
 1) Simple and beautiful user interface. 
 
-2) App works in all versions of apple watch. 
+2) Can do simple addition and substraction operations using this app. 
+
+3) Number is formatted as per users locale.
+
+4) App works in all versions of Apple Watch for both 38mm and 42mm version. 
 
 
 ## License
