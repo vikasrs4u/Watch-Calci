@@ -236,14 +236,13 @@ class InterfaceController: WKInterfaceController {
         let stringValueOfFormattedNumber = formatter.string(from: formattedNumber)
          calculationDisplayLabel.setText(stringValueOfFormattedNumber)
     }
-    
-    override func willActivate()
-    {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-        calculationDisplayLabel.setText("\(firstNumber)")
-        
-    }
 
+    override func awake(withContext context: Any?)
+    {
+        super.awake(withContext: context)
+        
+        // Configure interface objects here.
+        calculationDisplayLabel.setText("\(firstNumber)")
+    }
 
 }
