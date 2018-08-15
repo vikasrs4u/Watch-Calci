@@ -140,6 +140,20 @@
                             </items>
                         </group>
                     </items>
+                    <menu key="menu" id="SuR-hs-FIX">
+                        <items>
+                            <menuItem title="Multiply" icon="decline" id="E4F-Yb-eDZ">
+                                <connections>
+                                    <action selector="clickedMultiplyButton" destination="AgC-eL-Hgc" id="n9K-sq-eu0"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Divide" icon="block" id="1Tp-VM-CzV">
+                                <connections>
+                                    <action selector="clickedDivideButton" destination="AgC-eL-Hgc" id="dhy-43-090"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="calculationDisplayLabel" destination="PH3-y1-i5e" id="oiz-0b-vTD"/>
                     </connections>

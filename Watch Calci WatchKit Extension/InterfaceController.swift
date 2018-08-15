@@ -13,6 +13,9 @@ enum Actions
 {
    case ADD
    case SUB
+   case MUL
+   case DIV
+   case EQUALS
    case CLEAR
 
 }
@@ -70,7 +73,7 @@ class InterfaceController: WKInterfaceController {
     
     func clickedNumber(num:Int)
     {
-        if (firstNumber != 0)
+        if (firstNumber != 0 && previousAction != Actions.EQUALS)
         {
            let concatData = "\(firstNumber)\(num)"
             
@@ -89,6 +92,15 @@ class InterfaceController: WKInterfaceController {
         }
         else
         {
+            if(firstNumber != 0)
+            {
+                secondNumber = firstNumber
+                
+                if (previousAction == Actions.EQUALS)
+                {
+                    previousAction = Actions.CLEAR
+                }
+            }
             let concatData = "\(num)"
             
             guard let concatNumber:Int64 = Int64(concatData) else
@@ -100,8 +112,23 @@ class InterfaceController: WKInterfaceController {
             firstNumber = concatNumber
             formattedNumberDisplay(num: firstNumber)
             print(firstNumber)
+            
+
         }
         
+    }
+    
+    @IBAction func clickedMultiplyButton()
+    {
+        previousAction = Actions.MUL
+        actionToBeTaken(mode: previousAction)
+    }
+    
+    
+    @IBAction func clickedDivideButton()
+    {
+        previousAction = Actions.DIV
+        actionToBeTaken(mode: previousAction)
     }
     
     @IBAction func clickedPlusButton()
@@ -127,6 +154,12 @@ class InterfaceController: WKInterfaceController {
     @IBAction func clickedEqualsButton()
     {
         actionToBeTaken(mode: previousAction)
+        
+        firstNumber = secondNumber
+        
+        secondNumber = 0
+        
+        previousAction = Actions.EQUALS
     }
     
     func actionToBeTaken(mode:Actions)
@@ -147,6 +180,40 @@ class InterfaceController: WKInterfaceController {
                 secondNumber = firstNumber - secondNumber
             }
             
+            
+        }
+        else if(mode == Actions.MUL)
+        {
+            if(secondNumber != 0)
+            {
+                secondNumber = secondNumber * firstNumber
+            }
+            else
+            {
+                secondNumber = firstNumber
+            }
+        }
+        else if (mode == Actions.DIV)
+        {
+            if (secondNumber != 0)
+            {
+                if(firstNumber == 0)
+                {
+                    calculationDisplayLabel.setText("Error")
+                    firstNumber = 0
+                    secondNumber = 0
+                    return
+                }
+                else
+                {
+                    secondNumber = secondNumber / firstNumber
+                }
+               
+            }
+            else
+            {
+                secondNumber = firstNumber
+            }
             
         }
         else if(mode == Actions.CLEAR)
@@ -170,7 +237,8 @@ class InterfaceController: WKInterfaceController {
          calculationDisplayLabel.setText(stringValueOfFormattedNumber)
     }
     
-    override func willActivate() {
+    override func willActivate()
+    {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         calculationDisplayLabel.setText("\(firstNumber)")
